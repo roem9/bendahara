@@ -42,6 +42,10 @@
                         <td style="background: yellow"><?= $periode['pengeluaran']?></td>
                         <td style="background: yellow"><?= $periode['pemasukan'] - $periode['pengeluaran']?></td>
                         <td><?= $total?></td>
+                        <?php
+                            $periode['pemasukan'] = 0;
+                            $periode['pengeluaran'] = 0;
+                        ?>
                     </tr>
                 <?php elseif(date("M", strtotime($data[$i]['tgl'])) != date("M", strtotime($data[$i+1]['tgl']))) :
                     $no = 0;
@@ -52,6 +56,10 @@
                         <td style="background: yellow"><?= $periode['pengeluaran']?></td>
                         <td style="background: yellow"><?= $periode['pemasukan'] - $periode['pengeluaran']?></td>
                         <td><?= $total?></td>
+                        <?php
+                            $periode['pemasukan'] = 0;
+                            $periode['pengeluaran'] = 0;
+                        ?>
                     </tr>
                     <tr>
                         <td colspan=7><center><b>Rekap <?= date("M Y", strtotime($data[$i+1]['tgl']))?></b></center></td>
