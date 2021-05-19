@@ -12,6 +12,7 @@
             <tr>
                 <th>No</th>
                 <th>Tgl</th>
+                <th>User</th>
                 <th>Keterangan</th>
                 <th>Pemasukan</th>
                 <th>Pengeluaran</th>
@@ -37,7 +38,7 @@
             ?>
                 <?php if($i == COUNT($data)-1) :?>
                     <tr>
-                        <td style="background: yellow" colspan="3">Sub Total</td>
+                        <td style="background: yellow" colspan="4">Sub Total</td>
                         <td style="background: yellow"><?= $periode['pemasukan']?></td>
                         <td style="background: yellow"><?= $periode['pengeluaran']?></td>
                         <td style="background: yellow"><?= $periode['pemasukan'] - $periode['pengeluaran']?></td>
@@ -51,7 +52,7 @@
                     $no = 0;
                 ?>
                     <tr>
-                        <td style="background: yellow" colspan="3">Sub Total</td>
+                        <td style="background: yellow" colspan="4">Sub Total</td>
                         <td style="background: yellow"><?= $periode['pemasukan']?></td>
                         <td style="background: yellow"><?= $periode['pengeluaran']?></td>
                         <td style="background: yellow"><?= $periode['pemasukan'] - $periode['pengeluaran']?></td>
@@ -62,17 +63,18 @@
                         ?>
                     </tr>
                     <tr>
-                        <td colspan=7><center><b>Rekap <?= date("M Y", strtotime($data[$i+1]['tgl']))?></b></center></td>
+                        <td colspan=8><center><b>Rekap <?= date("M Y", strtotime($data[$i+1]['tgl']))?></b></center></td>
                     </tr>
                 <?php else :
                     if($i == 0) :?>
                         <tr>
-                            <td colspan=7><center><b>Rekap <?= date("M Y", strtotime($data[$i]['tgl']))?></b></center></td>
+                            <td colspan=8><center><b>Rekap <?= date("M Y", strtotime($data[$i]['tgl']))?></b></center></td>
                         </tr>
                     <?php endif;?>
                     <tr>
                         <td><?= $no?></td>
                         <td><?= $data[$i]['tgl']?></td>
+                        <td><?= $data[$i]['pelaku']?></td>
                         <td><?= $data[$i]['keterangan']?></td>
                         <?php if($data[$i]['tipe'] == "Pemasukan") :?>
                             <td><?= $data[$i]['nominal']?></td>
