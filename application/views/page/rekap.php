@@ -37,6 +37,23 @@
                     }
             ?>
                 <?php if($i == COUNT($data)-1) :?>
+                    
+                    <tr>
+                        <td><?= $no?></td>
+                        <td><?= $data[$i]['tgl']?></td>
+                        <td><?= $data[$i]['pelaku']?></td>
+                        <td><?= $data[$i]['keterangan']?></td>
+                        <?php if($data[$i]['tipe'] == "Pemasukan") :?>
+                            <td><?= $data[$i]['nominal']?></td>
+                            <td>-</td>
+                        <?php else :?>
+                            <td>-</td>
+                            <td><?= $data[$i]['nominal']?></td>
+                        <?php endif;?>
+                        <th>-</th>
+                        <td><?= $total?></td>
+                    </tr>
+
                     <tr>
                         <td style="background: yellow" colspan="4">Sub Total</td>
                         <td style="background: yellow"><?= $periode['pemasukan']?></td>
@@ -49,8 +66,26 @@
                         ?>
                     </tr>
                 <?php elseif(date("M", strtotime($data[$i]['tgl'])) != date("M", strtotime($data[$i+1]['tgl']))) :
-                    $no = 0;
                 ?>
+                    
+                    <tr>
+                        <td><?= $no?></td>
+                        <td><?= $data[$i]['tgl']?></td>
+                        <td><?= $data[$i]['pelaku']?></td>
+                        <td><?= $data[$i]['keterangan']?></td>
+                        <?php if($data[$i]['tipe'] == "Pemasukan") :?>
+                            <td><?= $data[$i]['nominal']?></td>
+                            <td>-</td>
+                        <?php else :?>
+                            <td>-</td>
+                            <td><?= $data[$i]['nominal']?></td>
+                        <?php endif;?>
+                        <th>-</th>
+                        <td><?= $total?></td>
+                    </tr>
+                    
+                    <?php $no = 0 ;?>
+
                     <tr>
                         <td style="background: yellow" colspan="4">Sub Total</td>
                         <td style="background: yellow"><?= $periode['pemasukan']?></td>
